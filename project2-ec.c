@@ -95,6 +95,7 @@ int main (void){
 			display();
 		}
 		if(!(PINB & (1<<0))){
+			if(hour != 0)
 			hour --;
 		}
 		while(!(PINB & (1<<0))){
@@ -107,6 +108,7 @@ int main (void){
 			display();
 		}
 		if(!(PINB & (1<<3))){
+			if(min != 0)
 			min --;
 		}
 		while(!(PINB & (1<<3))){
@@ -119,6 +121,7 @@ int main (void){
 			display();
 		}
 		if(!(PINB & (1<<5))){
+			if(sec != 0)
 			sec --;
 		}
 		while(!(PINB & (1<<5))){
@@ -166,11 +169,11 @@ ISR(TIMER1_COMPA_vect){
 
 	}
 	else if(count_flag){
-		if(!(sec == 0 && min ==0 && hour ==0)){
+
 		sec --;
 		PORTD |= (1<<5);
 		PORTD &= ~(1<<4);
-		}
+
 	}
 	else if(count_flag == 0){
 		sec ++;
