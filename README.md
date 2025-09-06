@@ -73,5 +73,5 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
 ---
 
 ## 📸 Project Image
-_Add your hardware wiring photo or circuit diagram here._
+![Project Setup](project_image.png)
 
