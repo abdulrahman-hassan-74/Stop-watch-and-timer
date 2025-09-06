@@ -1,7 +1,7 @@
-# ATmega32 Timer & Stopwatch ⏱️
+# ATmega32 Timer & Stopwatch ⏱️🔔
 
 This project demonstrates how to implement a **countdown timer** and a **stopwatch** on the ATmega32 microcontroller using C language and AVR libraries.  
-It uses hardware timers (Timer1), external interrupts, and button inputs to control time counting and display it on 7-segment displays.
+It uses hardware timers (Timer1), external interrupts, and button inputs to control time counting and display it on 7-segment displays, with a **buzzer alarm** when the countdown reaches zero.
 
 ---
 
@@ -14,8 +14,8 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
   - Reset time to `00:00:00`
 - Uses **Interrupts** (`INT0`, `INT1`, `INT2`) for reset, pause, and resume.
 - LED indicators:
-  - Blinks to show countdown
-  - Lights up when time reaches `00:00:00`
+  - Show countdown or stopwatch status
+- **Buzzer alarm** sounds when time reaches `00:00:00`.
 
 ---
 
@@ -24,6 +24,7 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
 - 7-Segment Displays (6 digits, multiplexed via `PORTA` + `PORTC`)
 - Push Buttons (for start/stop, increment/decrement, reset, pause, resume)
 - LEDs (status indication)
+- **Buzzer** (alarm when countdown ends)
 - Resistors & wiring
 
 ---
@@ -39,6 +40,9 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
 - **LEDs**:  
   - Connected to `PORTD` pins for status indication  
 
+- **Buzzer**:  
+  - Connected to `PORTD` (activated when timer reaches zero)
+
 ---
 
 ## ⚙️ Software Overview
@@ -51,6 +55,7 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
 - **ISR** routines:
   - Update timer/stopwatch values
   - Control LEDs
+  - Trigger buzzer when countdown ends
   - Manage reset/pause/resume
 
 ---
@@ -63,20 +68,10 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
    - Stopwatch mode → counts up continuously  
 4. Reset anytime using the reset button (`INT0`).  
 5. Pause/Resume using `INT1` and `INT2`.  
+6. When countdown reaches `00:00:00`, the **buzzer alarm** will sound.
 
 ---
 
-## 📂 Project Structure
-- `project2-ec.c` → contains the full implementation (timer, stopwatch, interrupts, display handling).
+## 📸 Project Image
+_Add your hardware wiring photo or circuit diagram here._
 
----
-
-## 🚀 Future Improvements
-- Add buzzer/alarm when timer reaches zero.  
-- Improve debounce handling for buttons.  
-- Add EEPROM saving of last set time.  
-
----
-
-## 📜 License
-This project is open-source. Feel free to use and modify for learning or personal projects.
