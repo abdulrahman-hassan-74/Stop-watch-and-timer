@@ -67,7 +67,7 @@ It uses hardware timers (Timer1), external interrupts, and button inputs to cont
 ---
 
 ## 📂 Project Structure
-- `main.c` → contains the full implementation (timer, stopwatch, interrupts, display handling).
+- `project2-ec.c` → contains the full implementation (timer, stopwatch, interrupts, display handling).
 
 ---
 
